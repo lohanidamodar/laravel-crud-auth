@@ -15,6 +15,8 @@ class ListingsController extends Controller
     public function index()
     {
         //
+        $listings = Listing::orderBy('created_at','desc')->get();
+        return view('listings')->with('listings',$listings);
     }
 
     /**
@@ -62,6 +64,8 @@ class ListingsController extends Controller
     public function show($id)
     {
         //
+        $listing = Listing::find($id);
+        return view('showlisting')->with('listing',$listing);
     }
 
     /**
