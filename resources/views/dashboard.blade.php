@@ -23,9 +23,19 @@
                                 <p>
                                     {{$listing->address}}
                                 </p>
-                                <p>
-                                    <a href="/listings/{{$listing->id}}/edit" class="btn btn-primary">Edit</a>
-                                </p>
+                                <div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="/listings/{{$listing->id}}/edit" class="btn btn-primary">Edit</a>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            {!! Form::open(['action' => ['ListingsController@destroy',$listing->id], 'method'=>'post', 'class'=>'d-inline', 'onsubmit'=>'return confirm("Are you sure");']) !!}
+                                                    {{ Form::hidden('_method', 'DELETE') }}
+                                                    {{ Form::bsSubmit('Delete',['class'=>'btn btn-danger']) }}
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>
