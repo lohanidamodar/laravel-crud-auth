@@ -23,6 +23,9 @@
                                 <p>
                                     {{$listing->address}}
                                 </p>
+                                <p>
+                                    <a href="/listings/{{$listing->id}}/edit" class="btn btn-primary">Edit</a>
+                                </p>
                             </div>
                         @endforeach
                     </div>
