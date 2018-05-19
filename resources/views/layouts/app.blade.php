@@ -69,6 +69,7 @@
 
         <main class="py-4">
             <div class="container">
+                @include('inc.alerts')
                 @yield('content')
             </div>
         </main>
